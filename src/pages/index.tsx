@@ -146,12 +146,13 @@ export default function Home() {
         onChange={handleChange}
       />
       <br />
-      <Alert
-        severity="error"
-        className={isExist ? "w-[270px] mt-2 hidden" : "w-[270px] mt-2"}
-      >
-        This PID is not exist!
-      </Alert>
+      {!isExist ? (
+        <Alert severity="error" className="w-[270px] mt-2">
+          This PID is not exist!
+        </Alert>
+      ) : (
+        ""
+      )}
       <button className="mt-2 px-2 py-1 mr-2 button" onClick={handleClick}>
         Add
       </button>
